@@ -1,0 +1,34 @@
+.div1{padding-top:3px; padding-bottom: 3px;background-color: rgb(193, 221, 239);color: black;font-family: Georgia, 'Times New Roman', Times, serif;text-align: center;}
+
+.div2,.div4,.div6{margin-left: 30px;background-color: rgb(253, 205, 141);border: 1px rgb(11, 2, 2);font-family: Arial, Helvetica, sans-serif;font-size: medium;;}
+
+.div3,.div5{background-color:rgb(152, 236, 168);color: black;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: x-large;text-align: center;padding-top: 3px;padding-bottom: 1px;}
+
+.div8,.div9{background-color:rgb(152, 236, 168);margin-left: 30px;border: 1px rgb(11, 2, 2);font-family: Arial, Helvetica, sans-serif;font-size: medium;padding: 10px;}
+
+a#one,#two,#three{text-decoration: none;}
+a#one:link{color: blue;}
+a#one:hover{background-color: floralwhite;font-size: 150%;font-family: monospace;color: deeppink;}
+
+a#two:link{color: blue;}
+a#two:hover{background-color: floralwhite;font-size: 150%;font-family: monospace;color: deeppink;}
+
+a#three:link{color: blue;}
+a#three:hover{text-decoration: solid;;background-color: floralwhite;font-size: 150%;font-family: monospace;color: deeppink;}
+
+.roar {background-color: rgb(194, 196, 245);padding: 30px;font-size: 20px;text-decoration: none; width: 50%;height: 150px;text-align: center;border: 5px solid deeppink ;}
+
+body{background-color:lightyellow;}
+
+#edu,th,td{border: 2px solid rgb(4, 169, 35);border-collapse: collapse;}
+
+#edu{width: 100%;}
+
+th{font-size:  25px;background-color:rgb(28, 189, 60) ;font-family: 'Trebuchet MS', Arial, sans-serif;padding: 8px;}
+
+td{padding: 20px;}
+
+tr:nth-child(odd){background-color:rgb(204, 249, 212) ;}
+tr:nth-child(even){background-color:rgb(243, 219, 187);}
+
+input{border: 2px solid black;padding: 10px;}
