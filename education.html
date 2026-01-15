@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder - Education</title>
+  <link rel="stylesheet" href="resume.css">
+
+  <!-- HOVER EFFECTS -->
+  <style>
+    .action-btn {
+      transition: transform 0.25s ease, font-size 0.25s ease;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: scale(1.08);
+      font-size: 1.05em;
+    }
+
+    .delete-btn {
+      background-color: #ff8a8a;
+      border: 2px solid black;
+      padding: 6px 10px;
+    }
+
+    .add-btn {
+      background-color: #ffe28a;
+      border: 3px solid black;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TITLE -->
+<div class="div1">
+  <h1 style="font-size: 50px;
+             text-decoration-line: underline overline;
+             text-decoration-thickness:4px;
+             text-decoration-color: black;">
+    EDUCATION
+  </h1>
+</div>
+
+<br>
+
+<form id="education-form">
+
+<table id="edu" border="1" cellpadding="10" cellspacing="0" style="margin:auto;">
+  
+  <tr>
+    <th>YEAR</th>
+    <th>INSTITUTION</th>
+    <th>COURSE</th>
+    <th>GRADE</th>
+    <th>ACTION</th>
+  </tr>
+
+  <!-- FIRST ROW -->
+  <tr class="edu-row">
+    <td style="text-align:center;">
+      <input type="number"
+             name="year[]"
+             placeholder="Year"
+             min="1950"
+             max="2100"
+             style="width:120px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text"
+             name="institution[]"
+             placeholder="Institution"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text"
+             name="course[]"
+             placeholder="Course"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text"
+             name="grade[]"
+             placeholder="CGPA / %"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <button type="button"
+              class="delete-btn action-btn"
+              onclick="deleteRow(this)">
+        Delete
+      </button>
+    </td>
+  </tr>
+
+</table>
+
+<br><br>
+
+<!-- ADD ROW -->
+<center>
+  <button type="button"
+          class="add-btn action-btn"
+          onclick="addEducationRow()">
+    + ADD EDUCATION
+  </button>
+</center>
+
+<br><br>
+
+<!-- NAVIGATION -->
+<center>
+  <div class="hello"
+       style="text-align: center;
+              border: 3px solid black;
+              width: 40%;
+              padding: 40px;
+              background-color: rgb(243, 143, 106);">
+
+    <input type="button"
+           value="← BACK"
+           class="action-btn"
+           onclick="goBack()"
+           style="border: 3px solid black;
+                  width: 120px;
+                  padding: 15px;
+                  background-color: #b0c4de;
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+
+    &nbsp;&nbsp;&nbsp;
+
+    <input type="reset"
+           value="CLEAR ALL"
+           class="action-btn"
+           onclick="resetTable()"
+           style="border: 3px solid black;
+                  width: 130px;
+                  padding: 15px;
+                  background-color: rgb(8, 232, 79);
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+
+    &nbsp;&nbsp;&nbsp;
+
+    <input type="button"
+           value="NEXT"
+           class="action-btn"
+           onclick="goNext()"
+           style="border: 3px solid black;
+                  width: 140px;
+                  padding: 15px;
+                  background-color: rgba(237, 43, 43, 0.797);
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+  </div>
+</center>
+
+</form>
+
+<br><hr>
+
+<!-- JAVASCRIPT -->
+<script>
+function addEducationRow() {
+  const table = document.getElementById("edu");
+
+  const row = document.createElement("tr");
+  row.className = "edu-row";
+
+  row.innerHTML = `
+    <td style="text-align:center;">
+      <input type="number" name="year[]" placeholder="Year"
+             min="1950" max="2100" style="width:120px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text" name="institution[]" placeholder="Institution"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text" name="course[]" placeholder="Course"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <input type="text" name="grade[]" placeholder="CGPA / %"
+             style="width:200px;">
+    </td>
+
+    <td style="text-align:center;">
+      <button type="button"
+              class="delete-btn action-btn"
+              onclick="deleteRow(this)">
+        Delete
+      </button>
+    </td>
+  `;
+
+  table.appendChild(row);
+}
+
+function deleteRow(button) {
+  const table = document.getElementById("edu");
+
+  if (table.rows.length > 2) {
+    button.closest("tr").remove();
+  } else {
+    alert("At least one education entry is required.");
+  }
+}
+
+function resetTable() {
+  const table = document.getElementById("edu");
+
+  while (table.rows.length > 2) {
+    table.deleteRow(2);
+  }
+
+  const inputs = table.rows[1].querySelectorAll("input");
+  inputs.forEach(input => input.value = "");
+}
+
+function goBack() {
+  window.location.href = "index.html";
+}
+
+function goNext() {
+  window.location.href = "skills.html";
+}
+</script>
+
+</body>
+</html>
