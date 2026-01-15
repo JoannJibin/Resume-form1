@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder - Contact</title>
     <link rel="stylesheet" href="resume.css">
+
+    <!-- HOVER EFFECTS -->
+    <style>
+      .action-btn {
+        transition: transform 0.25s ease, font-size 0.25s ease;
+        cursor: pointer;
+      }
+
+      .action-btn:hover {
+        transform: scale(1.08);
+        font-size: 1.05em;
+      }
+    </style>
 </head>
 <body>
 
@@ -24,79 +37,95 @@
 <!-- SINGLE FORM -->
 <form id="contact-form">
 
-<!-- NAME -->
-<div class="div2" style="font-size: 20px; padding: 20px">
-  <label for="name"><b>NAME:</b></label>
-  <input type="text" id="name" placeholder="Full Name" style="width: 300px;" required>
-</div>
+  <!-- NAME -->
+  <div class="div2" style="font-size: 20px; padding: 20px">
+    <label for="name"><b>NAME:</b></label>
+    <input type="text" id="name" placeholder="Full Name"
+           style="width: 300px;" required>
+  </div>
 
-<br><hr>
+  <br><hr>
 
-<!-- CONTACT DETAILS -->
-<div class="div3">
-  <h3 style="border: 3px rgb(1, 14, 1); border-style: solid;">
-    CONTACT DETAILS
-  </h3>
-</div>
+  <!-- CONTACT DETAILS -->
+  <div class="div3">
+    <h3 style="border: 3px rgb(1, 14, 1); border-style: solid;">
+      CONTACT DETAILS
+    </h3>
+  </div>
 
-<br>
+  <br>
 
-<div class="div4" style="padding: 20px">
+  <div class="div4" style="padding: 20px">
 
-  <label for="phone"><b>PHONE NO. :</b></label>
-  <input type="tel" id="phone" placeholder="Mobile Phone No." required>
-  <br><br>
+    <label for="phone"><b>PHONE NO. :</b></label>
+    <input type="tel" id="phone" placeholder="Mobile Phone No." required>
+    <br><br>
 
-  <label for="email"><b>EMAIL :</b></label>
-  <input type="email" id="email" placeholder="Email Id" style="width: 250px;" required>
-  <br><br>
+    <label for="email"><b>EMAIL :</b></label>
+    <input type="email" id="email" placeholder="Email Id"
+           style="width: 250px;" required>
+    <br><br>
 
-  <label for="linkedin"><b>LinkedIn ID :</b></label>
-  <input type="url" id="linkedin" placeholder="LinkedIn Profile URL" style="width: 250px;">
-  <br><br>
+    <label for="linkedin"><b>LinkedIn ID :</b></label>
+    <input type="url" id="linkedin"
+           placeholder="LinkedIn Profile URL"
+           style="width: 250px;">
+    <br><br>
 
-  <label for="github"><b>GitHub ID :</b></label>
-  <input type="url" id="github" placeholder="GitHub Profile URL" style="width: 250px;">
-
-</div>
-
-<br><br>
-
-<!-- ACTION BUTTONS -->
-<center>
-  <div class="hello"
-       style="text-align: center;
-              border: 3px solid black;
-              width: 25%;
-              padding: 40px;
-              background-color: rgb(243, 143, 106);">
-
-    <input type="reset"
-           value="CLEAR"
-           style="border: 3px solid black;
-                  width: 100px;
-                  padding: 15px;
-                  background-color: rgb(8, 232, 79);
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: large;">
-
-    &nbsp;&nbsp;&nbsp;&nbsp;
-
-    <input type="button"
-           value="NEXT"
-           style="border: 3px solid black;
-                  width: 180px;
-                  padding: 15px;
-                  background-color: rgba(237, 43, 43, 0.797);
-                  font-family: 'Times New Roman', Times, serif;
-                  font-size: large;">
+    <label for="github"><b>GitHub ID :</b></label>
+    <input type="url" id="github"
+           placeholder="GitHub Profile URL"
+           style="width: 250px;">
 
   </div>
-</center>
+
+  <br><br>
+
+  <!-- ACTION BUTTONS -->
+  <center>
+    <div class="hello"
+         style="text-align: center;
+                border: 3px solid black;
+                width: 25%;
+                padding: 40px;
+                background-color: rgb(243, 143, 106);">
+
+      <input type="reset"
+             value="CLEAR"
+             class="action-btn"
+             style="border: 3px solid black;
+                    width: 100px;
+                    padding: 15px;
+                    background-color: rgb(8, 232, 79);
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: large;">
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+
+      <input type="button"
+             value="NEXT"
+             onclick="goNext()"
+             class="action-btn"
+             style="border: 3px solid black;
+                    width: 180px;
+                    padding: 15px;
+                    background-color: rgba(237, 43, 43, 0.797);
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: large;">
+    </div>
+  </center>
 
 </form>
 
 <br><hr>
+
+<!-- JAVASCRIPT -->
+<script>
+  function goNext() {
+    // (Later we will save data here using localStorage)
+    window.location.href = "education.html";
+  }
+</script>
 
 </body>
 </html>
