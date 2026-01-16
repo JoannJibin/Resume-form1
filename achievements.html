@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder - Achievements</title>
+  <link rel="stylesheet" href="resume.css">
+
+  <!-- HOVER EFFECTS -->
+  <style>
+    .action-btn {
+      transition: transform 0.25s ease, font-size 0.25s ease;
+      cursor: pointer;
+    }
+    .action-btn:hover {
+      transform: scale(1.08);
+      font-size: 1.05em;
+    }
+    .add-btn {
+      background-color: #ffe28a;
+      border: 3px solid black;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .delete-btn {
+      background-color: #ff8a8a;
+      border: 2px solid black;
+      padding: 6px 12px;
+    }
+    .achievement-box {
+      border: 3px solid black;
+      padding: 20px;
+      margin: 20px auto;
+      width: 65%;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TITLE -->
+<div class="div1">
+  <h1 style="font-size: 50px;
+             text-decoration-line: underline overline;
+             text-decoration-thickness:4px;
+             text-decoration-color: black;">
+    ACHIEVEMENTS
+  </h1>
+</div>
+
+<br>
+
+<form id="achievements-form">
+
+<!-- ACHIEVEMENTS CONTAINER -->
+<div id="achievements-container">
+
+  <!-- ACHIEVEMENT 1 -->
+  <div class="achievement-box">
+
+    <label><b>Achievement Title</b></label><br>
+    <input type="text" name="achTitle[]" placeholder="e.g. Hackathon Winner"
+           style="width:350px;"><br><br>
+
+    <label>Description</label><br>
+    <input type="text" name="achDesc[]" placeholder="Brief description of achievement"
+           style="width:500px;"><br><br>
+
+    <label>Year (Optional)</label><br>
+    <input type="number" name="achYear[]" placeholder="e.g. 2024"
+           style="width:150px;"><br><br>
+
+    <button type="button"
+            class="delete-btn action-btn"
+            onclick="deleteAchievement(this)">
+      Delete Achievement
+    </button>
+
+  </div>
+
+</div>
+
+<br>
+
+<!-- ADD ACHIEVEMENT -->
+<center>
+  <button type="button"
+          class="add-btn action-btn"
+          onclick="addAchievement()">
+    + ADD ACHIEVEMENT
+  </button>
+</center>
+
+<br><br>
+
+<!-- NAVIGATION -->
+<center>
+  <div class="hello"
+       style="text-align: center;
+              border: 3px solid black;
+              width: 45%;
+              padding: 40px;
+              background-color: rgb(243, 143, 106);">
+
+    <input type="button"
+           value="← BACK"
+           onclick="goBack()"
+           class="action-btn"
+           style="border: 3px solid black;
+                  width: 120px;
+                  padding: 15px;
+                  background-color: #b0c4de;
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+
+    &nbsp;&nbsp;&nbsp;
+
+    <input type="reset"
+           value="CLEAR ALL"
+           class="action-btn"
+           style="border: 3px solid black;
+                  width: 130px;
+                  padding: 15px;
+                  background-color: rgb(8, 232, 79);
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+
+    &nbsp;&nbsp;&nbsp;
+
+    <input type="button"
+           value="NEXT"
+           onclick="goNext()"
+           class="action-btn"
+           style="border: 3px solid black;
+                  width: 140px;
+                  padding: 15px;
+                  background-color: rgba(237, 43, 43, 0.797);
+                  font-family: 'Times New Roman', Times, serif;
+                  font-size: large;">
+  </div>
+</center>
+
+</form>
+
+<br><hr>
+
+<!-- JAVASCRIPT -->
+<script>
+function addAchievement() {
+  const container = document.getElementById("achievements-container");
+
+  const div = document.createElement("div");
+  div.className = "achievement-box";
+
+  div.innerHTML = `
+    <label><b>Achievement Title</b></label><br>
+    <input type="text" name="achTitle[]" placeholder="e.g. Hackathon Winner"
+           style="width:350px;"><br><br>
+
+    <label>Description</label><br>
+    <input type="text" name="achDesc[]" placeholder="Brief description of achievement"
+           style="width:500px;"><br><br>
+
+    <label>Year (Optional)</label><br>
+    <input type="number" name="achYear[]" placeholder="e.g. 2024"
+           style="width:150px;"><br><br>
+
+    <button type="button"
+            class="delete-btn action-btn"
+            onclick="deleteAchievement(this)">
+      Delete Achievement
+    </button>
+  `;
+
+  container.appendChild(div);
+}
+
+function deleteAchievement(button) {
+  const container = document.getElementById("achievements-container");
+  if (container.children.length > 1) {
+    button.closest(".achievement-box").remove();
+  } else {
+    alert("At least one achievement is required.");
+  }
+}
+
+function goBack() {
+  window.location.href = "certifications.html";
+}
+
+function goNext() {
+  window.location.href = "summary.html";
+}
+</script>
+
+</body>
+</html>
